@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Deaths on {{ date }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for( 'static', filename='assets/css/noscript.css') }}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1 style="color:darksalmon">Notable deaths throughout the years that occurred on {{ date }}</h1>
+							<p></p>
+							{% for person in death_list %}
+								<h3><a href="{{ person['pages'][0]['content_urls']['desktop']['page'] }}">{{ person['text'] }}</a><span style="color:darksalmon"> - {{ person['year'] }}</span></h3>
+								<p><strong>{{ person['pages'][0]['extract'] }}</strong></p>
+								<br>
+								<h4> ---------------------------------------------- </h4>
+								<br>
+							{% endfor %}
+
+
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.twitch.tv/codingwithholmes" class="icon brands style2 fa-twitch"><span class="label">Twitch</span></a></li>
+									<li><a href="https://github.com/PHolmesOnGit" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Parker Holmes. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+
+
+	</body>
+</html>
