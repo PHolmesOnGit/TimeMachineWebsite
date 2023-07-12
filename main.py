@@ -37,7 +37,7 @@ def music():
     return render_template("music.html", date=chosen_date, song_list=chart)
 
 
-@app.route('/featured', chosen_date)
+@app.route('/featured')
 def feat():
     try:
         edit_date = datetime.datetime.strptime(chosen_date, '%d-%m-%Y')
