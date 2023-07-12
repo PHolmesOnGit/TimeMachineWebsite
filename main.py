@@ -14,7 +14,7 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/boxes', chosen_date, methods=["POST"])
+@app.route('/boxes', methods=["POST"])
 def boxes():
     date = request.form['date']
     chosen_date = date
