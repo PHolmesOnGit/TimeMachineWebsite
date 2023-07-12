@@ -14,7 +14,7 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/boxes', methods=["POST"])
+@app.route('/boxes', chosen_date, methods=["POST"])
 def boxes():
     date = request.form['date']
     chosen_date = date
@@ -28,7 +28,6 @@ def boxes():
 
 @app.route('/music')
 def music():
-    print(chosen_date)
     try:
         edit_date = datetime.datetime.strptime(chosen_date, '%d-%m-%Y')
     except ValueError:
@@ -38,7 +37,7 @@ def music():
     return render_template("music.html", date=chosen_date, song_list=chart)
 
 
-@app.route('/featured')
+@app.route('/featured', chosen_date)
 def feat():
     try:
         edit_date = datetime.datetime.strptime(chosen_date, '%d-%m-%Y')
