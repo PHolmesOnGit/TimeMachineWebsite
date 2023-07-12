@@ -6,8 +6,9 @@ from flask import Flask, request, render_template
 
 
 app = Flask(__name__)
+global chosen_date
 
- 
+
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -15,7 +16,6 @@ def home():
 
 @app.route('/boxes', methods=["POST"])
 def boxes():
-    global chosen_date
     date = request.form['date']
     chosen_date = date
     try:
